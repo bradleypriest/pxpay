@@ -56,13 +56,13 @@ This gem is in no way endorsed or affiliated with Payment Express
 TODO
 ----
  
-Add tests
+* Add tests
 
-Add ability to set global configuration options
+* Add ability to set global configuration options
 
-Token Billing
+* Token Billing
 
-Remove rails dependencies
+* Remove rails dependencies
 
 Contributing to PxPay
 ===================== 

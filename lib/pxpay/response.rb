@@ -5,7 +5,8 @@ module Pxpay
       @result = params[:result]
       @user_id = params[:userid]
     end
-  
+    
+    # Retrieving the transaction details from Payment Express as an instance of Pxpay::Notification
     def response
       require 'rest_client'
       response = ::RestClient.post( 'https://www.paymentexpress.com/pxpay/pxaccess.aspx', build_xml( result ) )
@@ -13,6 +14,7 @@ module Pxpay
     end
   
     private
+    # Internal method to build the xml to send to Payment Express
     def build_xml( result )
       xml = Builder::XmlMarkup.new
     

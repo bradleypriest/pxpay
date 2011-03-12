@@ -5,5 +5,8 @@ module Pxpay
     generators do
       require 'pxpay/install_generator'
     end
+    initializer "railtie.configure_rails_initialization" do
+      require 'pxpay/init'
+    end
   end
 end

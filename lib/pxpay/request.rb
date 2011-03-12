@@ -3,10 +3,18 @@ module Pxpay
     
     attr_accessor :post
     
+    # Create a new instance of Pxpay::Request
+    # Pxpay::Request.new( id, amount, options = {} )
+    # Current available options are:
+    # :currency, currency for transaction, default is NZD, can be any of Pxpay::Base.currency_types
+    # :reference, a reference field, default is the id
+    # :email, email address of user, default is nil
+    
     def initialize( id , price, options = {} )
       @post = build_xml( id, price, options )
     end
     
+    # Get the redirect URL from Payment Express
     def url
       require 'rest_client'
       response = ::RestClient.post("https://sec2.paymentexpress.com/pxpay/pxaccess.aspx", post )
@@ -15,7 +23,7 @@ module Pxpay
     end
     
     private
-    
+    # Internal method to build the xml to send to Payment Express
     def build_xml( id, price, options )
       xml = Builder::XmlMarkup.new
       xml.GenerateRequest do

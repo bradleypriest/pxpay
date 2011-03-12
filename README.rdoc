@@ -1,0 +1,44 @@
+= PxPay
+ A gem to integrate DPS-hosted payments through Payment Express' PxPay system. 
+ See http://www.paymentexpress.com/technical_resources/ecommerce_hosted/pxpay.html or http://www.paymentexpress.com/downloads/DPSECOM_PXPay.pdf for more details of PxPay
+ 
+ gem install pxpay
+ 
+ rails g pxpay:install to copy an initializer and a config yml file.
+ Make sure you add your own development credentials to the pxpay.yml file. Apply for a development account at https://www.paymentexpress.com/pxmi/apply
+ 
+ To send your customer to Payment Express for payment make a call to PaymentExpress::Request to request a redirection URL
+ 
+  def create
+    request = PaymentExpress::Request.new( id , price, options )
+    redirect_to request.url
+  end
+ 
+  Payment Express will redirect you back to the success URL that you provided. Use PaymentExpress:Response to get the details back from Payment Express
+ 
+  def success
+    response = PaymentExpress::Response.new(params).response
+    hash = response.hash
+  end
+ 
+ TODO 
+ Add code comments
+ Add tests
+ Add ability to set global configuration options
+ Add ability to use recurring billing
+
+== Contributing to PxPay
+ 
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
+* Fork the project
+* Start a feature/bugfix branch
+* Commit and push until you are happy with your contribution
+* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+== Copyright
+
+Copyright (c) 2011 Bradley Priest. See LICENSE.txt for
+further details.
+

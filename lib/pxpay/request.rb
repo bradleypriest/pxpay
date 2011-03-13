@@ -17,26 +17,27 @@ module Pxpay
     # Get the redirect URL from Payment Express
     def url
       require 'rest_client'
+      require 'nokogiri'
       response = ::RestClient.post("https://sec2.paymentexpress.com/pxpay/pxaccess.aspx", post )
-      url =  Hash.from_xml(response)['Request']['URI']
+      url = ::Nokogiri::XML(response).at_css("URI").inner_html
       return URI::extract(url).first.gsub("&amp;", "&")
     end
     
     private
     # Internal method to build the xml to send to Payment Express
     def build_xml( id, price, options )
-      xml = Builder::XmlMarkup.new
+      xml = ::Builder::XmlMarkup.new
       xml.GenerateRequest do
-        xml.PxPayUserId PXPAY_CONFIG[:pxpay][:pxpay_user_id]
-        xml.PxPayKey PXPAY_CONFIG[:pxpay][:pxpay_key]
+        xml.PxPayUserId ::PXPAY_CONFIG[:pxpay][:pxpay_user_id]
+        xml.PxPayKey ::PXPAY_CONFIG[:pxpay][:pxpay_key]
         xml.AmountInput sprintf("%.2f", price)
         xml.CurrencyInput options[:currency] || "NZD"
         xml.MerchantReference options[:reference] || id.to_s
         xml.EmailAddress options[:email]
         xml.TxnType "Purchase"
         xml.TxnId id
-        xml.UrlSuccess PXPAY_CONFIG[:pxpay][:success_url]
-        xml.UrlFail PXPAY_CONFIG[:pxpay][:failure_url]
+        xml.UrlSuccess ::PXPAY_CONFIG[:pxpay][:success_url]
+        xml.UrlFail ::PXPAY_CONFIG[:pxpay][:failure_url]
       end
     end
   end

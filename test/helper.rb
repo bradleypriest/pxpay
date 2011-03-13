@@ -9,10 +9,13 @@ rescue Bundler::BundlerError => e
 end
 require 'test/unit'
 require 'shoulda'
+require 'builder'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'pxpay'
+PXPAY_CONFIG = YAML.load_file("test/pxpay.yml")['test']
+
 
 class Test::Unit::TestCase
 end

@@ -1,0 +1,6 @@
+test:
+  :pxpay:
+    :pxpay_user_id: TODO
+    :pxpay_key: TODO
+    :success_url: http://localhost:3000/success
+    :failure_url: http://localhost:3000/failure

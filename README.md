@@ -49,20 +49,13 @@ This means your success/failure URL will be hit at least twice for each transact
 N.B.
 ----
 
-This gem does not yet have testing.
-
 This gem is in no way endorsed or affiliated with Payment Express
 
 TODO
 ----
- 
-* Add tests
-
 * Add ability to set global configuration options
-
+* Add more tests
 * Token Billing
-
-* Remove rails dependencies
 
 Contributing to PxPay
 ===================== 

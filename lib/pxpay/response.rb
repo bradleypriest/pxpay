@@ -1,6 +1,10 @@
 module Pxpay
+  # The response object received from Payment Express
   class Response
     attr_accessor :post
+    
+    # Create a new Payment Express response object by passing in the return parameters provided to the success/failure URL
+    
     def initialize(params)
       @result = params[:result]
       @user_id = params[:userid]

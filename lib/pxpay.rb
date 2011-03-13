@@ -1,3 +1,4 @@
+# A Ruby wrapper around the DPS-hosted PxPay service
 module Pxpay
   require "pxpay/railtie" if defined?(Rails)
   require "pxpay/base"

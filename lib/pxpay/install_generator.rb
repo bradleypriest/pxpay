@@ -1,4 +1,5 @@
 module Pxpay
+  # The install generator for Pxpay
   class InstallGenerator < Rails::Generators::Base
     desc "Copies pxpay.yml to config"
 

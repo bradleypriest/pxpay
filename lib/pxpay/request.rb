@@ -1,4 +1,5 @@
 module Pxpay
+  # The request object to send to Payment Express
   class Request
     
     attr_accessor :post

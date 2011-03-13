@@ -2,7 +2,7 @@ module Pxpay
   # The return notification from Payment Express 
   class Notification
     attr_accessor :response
-  
+    # Create a new Notification from Payment Express' response
     def initialize(response)
       @response = response
     end
@@ -27,6 +27,7 @@ module Pxpay
 end
 
 class String
+  # A copy of Rails' ActiveSupport underscore method
    def underscore
        self.gsub(/::/, '/').
        gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').

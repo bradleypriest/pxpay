@@ -1,4 +1,5 @@
 module Pxpay
+  # The base Pxpay class, contains the acceptable currency types and the details that are returned from Payment Express
   class Base
     # A list of the acceptable payment currencies
     # See http://www.paymentexpress.com/technical_resources/ecommerce_hosted/pxpay.html#Properties

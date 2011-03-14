@@ -46,6 +46,8 @@ N.B. There is a minor caveat here: Payment Express includes a system called fail
 
 This means your success/failure URL will be hit at least twice for each transaction, so you must allow for this in your code. See <http://www.paymentexpress.com/technical_resources/ecommerce_hosted/pxpay.html#ResultNotification> for details.
 
+
+Token Billing can be implemented by setting `:token_billing => true` inside the Request option hash.
 N.B.
 ----
 
@@ -55,7 +57,8 @@ TODO
 ----
 * Add ability to set global configuration options
 * Add more tests
-* Token Billing
+* Throw error if pxpay.yml has not been created
+* Add support for optional text fields
 
 Contributing to PxPay
 ===================== 

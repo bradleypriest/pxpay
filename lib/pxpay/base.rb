@@ -10,6 +10,10 @@ module Pxpay
     # The currently returned details from Payment Express. Access with Pxpay::Base.return_details
     def self.return_details
       [ :dps_billing_id, :txn_data1, :success, :card_number2, :email_address, :card_number, :amount_settlement, :txn_data2, :client_info, :date_expiry, :currency_settlement, :txn_data3, :txn_id, :txn_type, :date_settlement, :auth_code, :dps_txn_ref, :currency_input, :txn_mac, :card_name, :billing_id, :merchant_reference, :response_text, :card_holder_name ]
-    end      
+    end
+  
+    class << self
+      attr_accessor :pxpay_user_id, :pxpay_key, :success_url, :failure_url
+    end
   end
 end

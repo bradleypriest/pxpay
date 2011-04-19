@@ -1,6 +1,8 @@
 module Pxpay
   # The response object received from Payment Express
   class Response
+    require 'rest_client'
+    require 'builder'
     attr_accessor :post
     
     # Create a new Payment Express response object by passing in the return parameters provided to the success/failure URL
@@ -13,7 +15,6 @@ module Pxpay
     
     # Retrieving the transaction details from Payment Express as an instance of Pxpay::Notification
     def response
-      require 'rest_client'
       response = ::RestClient.post( 'https://www.paymentexpress.com/pxpay/pxaccess.aspx',  self.post )
       return ::Pxpay::Notification.new( response )
     end
@@ -24,8 +25,8 @@ module Pxpay
       xml = ::Builder::XmlMarkup.new
     
       xml.ProcessResponse do 
-        xml.PxPayUserId PXPAY_CONFIG[:pxpay][:pxpay_user_id]
-        xml.PxPayKey PXPAY_CONFIG[:pxpay][:pxpay_key]
+        xml.PxPayUserId ::Pxpay::Base.pxpay_user_id
+        xml.PxPayKey ::Pxpay::Base.pxpay_key
         xml.Response result
       end
     end

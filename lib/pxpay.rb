@@ -5,4 +5,5 @@ module Pxpay
   require "pxpay/request"
   require "pxpay/response"
   require "pxpay/notification"
+  require "pxpay/error"
 end

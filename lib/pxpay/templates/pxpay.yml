@@ -1,6 +1,0 @@
-development:
-  :pxpay:
-    :pxpay_user_id: Demo
-    :pxpay_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    :success_url: http://localhost:3000/success
-    :failure_url: http://localhost:3000/failure

@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/pxpay.rb",
     "lib/pxpay/base.rb",
+    "lib/pxpay/error.rb",
     "lib/pxpay/init.rb",
     "lib/pxpay/install_generator.rb",
     "lib/pxpay/notification.rb",

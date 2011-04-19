@@ -14,8 +14,12 @@ require 'builder'
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'pxpay'
-PXPAY_CONFIG = YAML.load_file("test/pxpay.yml")['test']
+require 'rest_client'
 
+Pxpay::Base.pxpay_user_id = 'Test_Dev'
+Pxpay::Base.pxpay_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+Pxpay::Base.success_url = 'http://localhost:3000/success'
+Pxpay::Base.failure_url = 'http://localhost:3000/failure'
 
 class Test::Unit::TestCase
 end

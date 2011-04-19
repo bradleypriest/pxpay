@@ -1,6 +1,10 @@
 module Pxpay
   # The request object to send to Payment Express
   class Request
+    require 'pxpay/error'
+    require 'rest_client'
+    require 'nokogiri'
+    require 'builder'
     
     attr_accessor :post
     
@@ -20,10 +24,17 @@ module Pxpay
     
     # Get the redirect URL from Payment Express
     def url
-      require 'rest_client'
-      require 'nokogiri'
       response = ::RestClient.post("https://sec2.paymentexpress.com/pxpay/pxaccess.aspx", post )
-      url = ::Nokogiri::XML(response).at_css("URI").inner_html
+      response_text = ::Nokogiri::XML(response)
+      if response_text.at_css("Request").attributes["valid"].value == "1"
+        url = response_text.at_css("URI").inner_html
+      else
+        if Pxpay::Base.pxpay_user_id
+          raise Pxpay::Error, response_text.at_css("Request").inner_html
+        else
+          raise Pxpay::MissingKey, "Your Pxpay config is not set up properly, run rails generate pxpay:install"
+        end
+      end
       return URI::extract(url).first.gsub("&amp;", "&")
     end
     
@@ -32,19 +43,18 @@ module Pxpay
     def build_xml( id, price, options )
       xml = ::Builder::XmlMarkup.new
       xml.GenerateRequest do
-        xml.PxPayUserId ::PXPAY_CONFIG[:pxpay][:pxpay_user_id]
-        xml.PxPayKey ::PXPAY_CONFIG[:pxpay][:pxpay_key]
+        xml.PxPayUserId ::Pxpay::Base.pxpay_user_id
+        xml.PxPayKey ::Pxpay::Base.pxpay_key
         xml.AmountInput sprintf("%.2f", price)
         xml.CurrencyInput options[:currency] || "NZD"
         xml.MerchantReference options[:reference] || id.to_s
         xml.EmailAddress options[:email]
-        xml.TxnType options[:txn_type].to_s.capitalize || "Purchase"
+        xml.TxnType options[:txn_type] ? options[:txn_type].to_s.capitalize : "Purchase"
         xml.TxnId id
-        xml.UrlSuccess ::PXPAY_CONFIG[:pxpay][:success_url]
-        xml.UrlFail ::PXPAY_CONFIG[:pxpay][:failure_url]
+        xml.UrlSuccess ::Pxpay::Base.success_url
+        xml.UrlFail ::Pxpay::Base.failure_url
         xml.EnableAddBillCard 1 if options[:token_billing]
         xml.BillingId options[:billing_id] if options[:token_billing]
-        
       end
     end
   end

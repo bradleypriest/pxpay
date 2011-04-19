@@ -6,7 +6,7 @@ module Pxpay
     source_root File.expand_path('../templates', __FILE__)
 
     def copy_files
-      template        'pxpay.yml' ,'config/pxpay.yml'
+      template        'pxpay.rb' ,'config/initializers/pxpay.rb'
     end
     
   end

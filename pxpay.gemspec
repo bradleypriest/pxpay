@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{pxpay}
-  s.version = "0.1.3"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bradley Priest"]
-  s.date = %q{2011-03-13}
+  s.date = %q{2011-04-20}
   s.description = %q{A Ruby wrapper around the DPS-hosted PxPay service}
   s.email = %q{bradleypriest@gmail.com}
   s.extra_rdoc_files = [
@@ -27,16 +27,14 @@ Gem::Specification.new do |s|
     "lib/pxpay.rb",
     "lib/pxpay/base.rb",
     "lib/pxpay/error.rb",
-    "lib/pxpay/init.rb",
     "lib/pxpay/install_generator.rb",
     "lib/pxpay/notification.rb",
     "lib/pxpay/railtie.rb",
     "lib/pxpay/request.rb",
     "lib/pxpay/response.rb",
-    "lib/pxpay/templates/pxpay.yml",
+    "lib/pxpay/templates/pxpay.rb",
     "pxpay.gemspec",
     "test/helper.rb",
-    "test/pxpay.yml",
     "test/response.xml",
     "test/test_pxpay.rb"
   ]

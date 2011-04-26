@@ -11,14 +11,19 @@ module Pxpay
     # Create a new instance of Pxpay::Request
     # Pxpay::Request.new( id, amount, options = {} )
     # Current available options are:
-    # :currency_input, currency for transaction, default is NZD, can be any of Pxpay::Base.currency_types
-    # :reference, a reference field, default is the id.
-    # :email_address, email address of user, default is nil.
-    # :token_billing, boolean value, set to true to enable token billing.
-    # :billing_id, optional billing_id field only used if token_billing is set to true.
-    # :txn_type, can be set to :auth for Auth transaction, defaults to Purchase
-    # :url_success, Success URL, can optionally be set globally via Pxpay::Base.url_success=
-    # :url_failure, Failure URL, can optionally be set globally via Pxpay::Base.url_failure=
+    # :currency_input,  currency for transaction, default is NZD, can be any of Pxpay::Base.currency_types
+    # :reference,       a reference field, default is the id.
+    # :email_address,   email address of user, optional.
+    # :token_billing,   boolean value, set to true to enable token billing.
+    # :billing_id,      optional billing_id field only used if token_billing is set to true.
+    # :txn_type,        can be set to :auth for Auth transaction, defaults to Purchase
+    # :url_success,     Success URL, can optionally be set globally via Pxpay::Base.url_success=
+    # :url_failure,     Failure URL, can optionally be set globally via Pxpay::Base.url_failure=
+    # :txn_data1,       Optional data
+    # :txn_data2,       Optional data
+    # :txn_data3,       Optional data
+    # :txn_data4,       Optional data
+    # :opt,             Optional data
     
     def initialize( id , price, options = {} )
       @post = build_xml( id, price, options )

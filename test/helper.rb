@@ -18,8 +18,8 @@ require 'rest_client'
 
 Pxpay::Base.pxpay_user_id = 'Test_Dev'
 Pxpay::Base.pxpay_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-Pxpay::Base.success_url = 'http://localhost:3000/success'
-Pxpay::Base.failure_url = 'http://localhost:3000/failure'
+Pxpay::Base.url_success = 'http://localhost:3000/success'
+Pxpay::Base.url_failure = 'http://localhost:3000/failure'
 
 class Test::Unit::TestCase
 end

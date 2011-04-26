@@ -19,6 +19,11 @@ class TestPxpay < Test::Unit::TestCase
       assert_match(/<AmountInput>12.34<\/AmountInput>/, @request.post)
     end
     
+    should "generate xml with provided endpoints" do
+      request_with_url = Pxpay::Request.new( 1, 12.34, { :url_success => "http://example.com/success", :url_failure => "http://example.com/success" })
+      assert_match %r(<UrlSuccess>http://example.com/success</UrlSuccess><UrlFail>http://example.com/success</UrlFail>), request_with_url.post
+      assert_no_match /localhost/, request_with_url.post
+    end
     # should "return a URL" do
     #   assert_match(/https:\/\/sec2.paymentexpress.com\/pxpay\/pxpay.aspx\?userid=\w{64}&request=\S{270}/, @request.url)
     # end

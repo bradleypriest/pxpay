@@ -13,7 +13,7 @@ module Pxpay
     end
   
     class << self
-      attr_accessor :pxpay_user_id, :pxpay_key, :success_url, :failure_url
+      attr_accessor :pxpay_user_id, :pxpay_key, :url_success, :url_failure
     end
   end
 end

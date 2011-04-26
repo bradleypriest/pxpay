@@ -23,7 +23,7 @@ Usage
 -----
     >> require 'nokogiri'
     >> require 'pxpay'
-    >> request = Pxpay::Request.new( 1, 12.00 )
+    >> request = Pxpay::Request.new( 1, 12.00, {:url_success => 'http://example.com/success/', :url_failure => 'http://example.com/failure'})
     => #<Pxpay::Request:0x00000101c9a840 >
     >> request.url
     => "https://sec2.paymentexpress.com/pxpay/pxpay.aspx?userid=Fake_Dev&request=xxxxxxxxxx"

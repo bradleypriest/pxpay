@@ -20,7 +20,6 @@ module Pxpay
       doc.at_css("Response").element_children.each do |attribute|
         hash[attribute.name.underscore.to_sym] = attribute.inner_text
       end
-      hash[:valid] = doc.at_css("Response")['valid']
       hash
     end
   end

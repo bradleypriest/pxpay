@@ -14,8 +14,8 @@ Installation
 ------------
 Install from Rubygems
     gem install pxpay
-Then run `rails generate pxpay:install` to copy an initializer and a config yml file to your rails app.
-Make sure you add your own development credentials to the `config/initializers/pxpay.rb` file and create success and failure URLs for Payment Express to redirect you back.
+Then run `rails generate pxpay:install` to copy an initializer to your rails app.
+Make sure you add your own development credentials to the `config/initializers/pxpay.rb` file
 You can apply for a development account at <https://www.paymentexpress.com/pxmi/apply>
 
 
@@ -52,8 +52,12 @@ This means your success/failure URL will be hit at least twice for each transact
 
 
 Token Billing can be implemented by setting `:token_billing => true` inside the Request option hash.
+
+
 N.B.
 ----
+The source of most non-gem related errors comes from the fact that Payment Express caches the details of a transaction with the ID given.
+If you are having problems with the wrong price being charged or an invalid card type error make sure you are sending a unique ID through with each transaction.
 
 This gem is in no way endorsed or affiliated with Payment Express
 
@@ -61,7 +65,6 @@ TODO
 ----
 * Add ability to set global configuration options
 * Add more tests
-* Add support for optional text fields
 
 Contributing to PxPay
 =====================

@@ -19,7 +19,7 @@ module Pxpay
     def url
       require 'rest_client'
       require 'nokogiri'
-      response = ::RestClient.post("https://sec2.paymentexpress.com/pxpay/pxaccess.aspx", post )
+      response = ::RestClient.post("https://sec.paymentexpress.com/pxpay/pxaccess.aspx", post )
       url = ::Nokogiri::XML(response).at_css("URI").inner_html
       return URI::extract(url).first.gsub("&amp;", "&")
     end

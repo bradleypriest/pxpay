@@ -2,7 +2,7 @@ module Pxpay
   # The base Pxpay class, contains the acceptable currency types and the details that are returned from Payment Express
   class Base
     @@pxpay_request_url = "https://sec.paymentexpress.com/pxpay/pxaccess.aspx"
-    cattr_accessor :pxpay_user_id, :pxpay_key, :url_success, :url_failure,:pxpay_request_url
+    cattr_accessor :pxpay_user_id, :pxpay_key, :url_success, :url_failure, :pxpay_request_url
 
     # A list of the acceptable payment currencies
     # See http://www.paymentexpress.com/technical_resources/ecommerce_hosted/pxpay.html#Properties

@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{pxpay}
-  s.version = "0.2.2"
+  s.version = "0.1.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Bradley Priest"]
-  s.date = %q{2011-05-15}
+  s.authors = [%q{Bradley Priest}]
+  s.date = %q{2011-06-15}
   s.description = %q{A Ruby wrapper around the DPS-hosted PxPay service}
   s.email = %q{bradleypriest@gmail.com}
   s.extra_rdoc_files = [
@@ -26,32 +26,33 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/pxpay.rb",
     "lib/pxpay/base.rb",
-    "lib/pxpay/error.rb",
     "lib/pxpay/install_generator.rb",
     "lib/pxpay/notification.rb",
     "lib/pxpay/railtie.rb",
     "lib/pxpay/request.rb",
     "lib/pxpay/response.rb",
-    "lib/pxpay/templates/pxpay.rb",
     "pxpay.gemspec",
     "test/helper.rb",
     "test/response.xml",
     "test/test_pxpay.rb"
   ]
   s.homepage = %q{http://github.com/bradleypriest/pxpay}
-  s.licenses = ["MIT"]
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
+  s.licenses = [%q{MIT}]
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.5}
   s.summary = %q{Ruby wrapper for the Payment Express' PxPay API}
+  s.test_files = [
+    "test/helper.rb",
+    "test/test_pxpay.rb"
+  ]
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.6"])
+      s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
       s.add_development_dependency(%q<builder>, [">= 0"])
       s.add_development_dependency(%q<nokogiri>, [">= 0"])
@@ -62,7 +63,7 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.6"])
+      s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
       s.add_dependency(%q<rcov>, [">= 0"])
       s.add_dependency(%q<builder>, [">= 0"])
       s.add_dependency(%q<nokogiri>, [">= 0"])
@@ -74,7 +75,7 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.6"])
+    s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
     s.add_dependency(%q<rcov>, [">= 0"])
     s.add_dependency(%q<builder>, [">= 0"])
     s.add_dependency(%q<nokogiri>, [">= 0"])

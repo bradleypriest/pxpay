@@ -32,7 +32,7 @@ module Pxpay
     
     # Get the redirect URL from Payment Express
     def url
-      response = ::RestClient.post("https://sec2.paymentexpress.com/pxpay/pxaccess.aspx", post )
+      response = ::RestClient.post(Pxpay::Base.pxpay_request_url, post )
       response_text = ::Nokogiri::XML(response)
       if response_text.at_css("Request").attributes["valid"].value == "1"
         url = response_text.at_css("URI").inner_html

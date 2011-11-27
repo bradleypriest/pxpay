@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{pxpay}
-  s.version = "0.1.5"
+  s.name = "pxpay"
+  s.version = "0.1.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Bradley Priest}]
-  s.date = %q{2011-06-15}
-  s.description = %q{A Ruby wrapper around the DPS-hosted PxPay service}
-  s.email = %q{bradleypriest@gmail.com}
+  s.authors = ["Bradley Priest"]
+  s.date = "2011-11-27"
+  s.description = "A Ruby wrapper around the DPS-hosted PxPay service"
+  s.email = "bradleypriest@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md"
@@ -39,11 +39,11 @@ Gem::Specification.new do |s|
     "test/response.xml",
     "test/test_pxpay.rb"
   ]
-  s.homepage = %q{http://github.com/bradleypriest/pxpay}
-  s.licenses = [%q{MIT}]
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.5}
-  s.summary = %q{Ruby wrapper for the Payment Express' PxPay API}
+  s.homepage = "http://github.com/bradleypriest/pxpay"
+  s.licenses = ["MIT"]
+  s.require_paths = ["lib"]
+  s.rubygems_version = "1.8.10"
+  s.summary = "Ruby wrapper for the Payment Express' PxPay API"
   s.test_files = [
     "test/helper.rb",
     "test/test_pxpay.rb"

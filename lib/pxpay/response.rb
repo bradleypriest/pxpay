@@ -14,7 +14,7 @@ module Pxpay
     # Retrieving the transaction details from Payment Express as an instance of Pxpay::Notification
     def response
       require 'rest_client'
-      response = ::RestClient.post( 'https://www.paymentexpress.com/pxpay/pxaccess.aspx',  self.post )
+      response = ::RestClient.post( Pxpay::Base.pxpay_request_url,  self.post )
       return ::Pxpay::Notification.new( response )
     end
   

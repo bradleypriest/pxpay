@@ -1,4 +1,4 @@
-PxPay
+# PxPay [![Build Status](https://secure.travis-ci.org/bradleypriest/pxpay.png)](http://travis-ci.org/bradleypriest/pxpay)
 =======
 A Rubygem to integrate DPS-hosted payments through the Payment Express PxPay system.
 

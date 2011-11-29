@@ -13,4 +13,5 @@ group :development do
   gem "builder"
   gem "nokogiri"
   gem "rest-client"
+  gem "rdoc"
 end

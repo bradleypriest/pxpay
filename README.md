@@ -13,7 +13,9 @@ See <http://www.paymentexpress.com/technical_resources/ecommerce_hosted/pxpay.ht
 Installation
 ------------
 Install from Rubygems
+    
     gem install pxpay
+    
 Then run `rails generate pxpay:install` to copy an initializer to your rails app.
 Make sure you add your own development credentials to the `config/initializers/pxpay.rb` file
 You can apply for a development account at <https://www.paymentexpress.com/pxmi/apply>
@@ -29,7 +31,7 @@ Usage
     => "https://sec2.paymentexpress.com/pxpay/pxpay.aspx?userid=Fake_Dev&request=xxxxxxxxxx"
 
 
-To send your customer to Payment Express for payment make a call to Pxpay::Request to request a redirection URL
+To send your customer to Payment Express for payment make a call to `Pxpay::Request` to request a redirection URL
 
     def create
       request = Pxpay::Request.new( id , price, options )
@@ -38,7 +40,7 @@ To send your customer to Payment Express for payment make a call to Pxpay::Reque
 
 Once your customer has entered their details Payment Express will redirect them back to the success URL that you provided.
 
-Use Pxpay:Response to get the transaction details back from Payment Express.
+Use `Pxpay:Response` to get the transaction details back from Payment Express.
 
     def success
       response = Pxpay::Response.new(params).response
@@ -79,6 +81,6 @@ Contributing to PxPay
 Copyright
 =========
 
-Copyright (c) 2011 Bradley Priest. See LICENSE.txt for
+Copyright (c) 2012 Bradley Priest. See LICENSE.txt for
 further details.
 

@@ -4,7 +4,9 @@ A Rubygem to integrate DPS-hosted payments through the Payment Express PxPay sys
 
 Notice:
 -------
-The upgrade from 0.1.3 - 0.2.0 is not backwards compatible. It has changed from a yml file to variables for config
+To integrate with the [PxPay 2.0](http://www.paymentexpress.com/Technical_Resources/Ecommerce_Hosted/PxPay_2_0) you simply need to change the default URL to the new endpoint.
+
+    Pxpay::Base.pxpay_request_url = 'https://sec.paymentexpress.com/pxaccess/pxpay.aspx'
 
 For self-hosted systems check out the amazing [ActiveMerchant](https://www.github.com/Shopify/active_merchant) gem.
 
@@ -23,6 +25,7 @@ You can apply for a development account at <https://www.paymentexpress.com/pxmi/
 
 Usage
 -----
+
     >> require 'nokogiri'
     >> require 'pxpay'
     >> request = Pxpay::Request.new( 1, 12.00, {:url_success => 'http://example.com/success/', :url_failure => 'http://example.com/failure'})

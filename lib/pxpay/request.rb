@@ -11,6 +11,8 @@ module Pxpay
     # Create a new instance of Pxpay::Request
     # Pxpay::Request.new( id, amount, options = {} )
     # Current available options are:
+    # :pxpay_user_id,       your Pxpay UserID, optionally used for overriding Pxpay::Base.pxpay_user_id.
+    # :pxpay_key,           your Pxpay Key, optionally used for overriding Pxpay::Base.pxpay_key.
     # :currency_input,      currency for transaction, default is NZD, can be any of Pxpay::Base.currency_types
     # :merchant_reference,  a reference field, default is the id.
     # :email_address,       email address of user, optional.
@@ -37,11 +39,7 @@ module Pxpay
       if response_text.at_css("Request").attributes["valid"].value == "1"
         url = response_text.at_css("URI").inner_html
       else
-        if Pxpay::Base.pxpay_user_id && Pxpay::Base.pxpay_key
-          raise Pxpay::Error, response_text.at_css("Request").inner_html
-        else
-          raise Pxpay::MissingKey, "Your Pxpay config is not set up properly, run rails generate pxpay:install"
-        end
+        raise Pxpay::Error, response_text.at_css("Request").inner_html
       end
       return URI::extract(url).first.gsub("&amp;", "&")
     end
@@ -51,8 +49,8 @@ module Pxpay
     def build_xml( id, price, options )
       xml = ::Builder::XmlMarkup.new
       xml.GenerateRequest do
-        xml.PxPayUserId       ::Pxpay::Base.pxpay_user_id
-        xml.PxPayKey          ::Pxpay::Base.pxpay_key
+        xml.PxPayUserId       options[:pxpay_user_id]       || ::Pxpay::Base.pxpay_user_id
+        xml.PxPayKey          options[:pxpay_key]           || ::Pxpay::Base.pxpay_key
         xml.AmountInput       sprintf("%.2f", price)
         xml.TxnId             id
         xml.TxnType           options[:txn_type]            ? options[:txn_type].to_s.capitalize : "Purchase"

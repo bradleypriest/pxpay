@@ -44,43 +44,14 @@ Gem::Specification.new do |s|
   s.rubygems_version = "1.8.10"
   s.summary = "Ruby wrapper for the Payment Express' PxPay API"
 
-  if s.respond_to? :specification_version then
-    s.specification_version = 3
+  s.specification_version = 3
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<shoulda>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.6"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
-      s.add_development_dependency(%q<builder>, [">= 0"])
-      s.add_development_dependency(%q<nokogiri>, [">= 0"])
-      s.add_development_dependency(%q<rest-client>, [">= 0"])
-      s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
-      s.add_runtime_dependency(%q<rest-client>, [">= 0"])
-      s.add_runtime_dependency(%q<builder>, [">= 0"])
-    else
-      s.add_dependency(%q<shoulda>, [">= 0"])
-      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.6"])
-      s.add_dependency(%q<rcov>, [">= 0"])
-      s.add_dependency(%q<builder>, [">= 0"])
-      s.add_dependency(%q<nokogiri>, [">= 0"])
-      s.add_dependency(%q<rest-client>, [">= 0"])
-      s.add_dependency(%q<nokogiri>, [">= 0"])
-      s.add_dependency(%q<rest-client>, [">= 0"])
-      s.add_dependency(%q<builder>, [">= 0"])
-    end
-  else
-    s.add_dependency(%q<shoulda>, [">= 0"])
-    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.6"])
-    s.add_dependency(%q<rcov>, [">= 0"])
-    s.add_dependency(%q<builder>, [">= 0"])
-    s.add_dependency(%q<nokogiri>, [">= 0"])
-    s.add_dependency(%q<rest-client>, [">= 0"])
-    s.add_dependency(%q<nokogiri>, [">= 0"])
-    s.add_dependency(%q<rest-client>, [">= 0"])
-    s.add_dependency(%q<builder>, [">= 0"])
-  end
+  s.add_development_dependency('shoulda', '~> 0')
+  s.add_development_dependency('bundler', '~> 1.0')
+  s.add_development_dependency('jeweler', '~> 1.6')
+  s.add_development_dependency('rcov', '~> 0')
+  s.add_runtime_dependency('nokogiri', '~> 0')
+  s.add_runtime_dependency('rest-client', '~> 0')
+  s.add_runtime_dependency('builder', '~> 0')
 end
 

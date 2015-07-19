@@ -46,12 +46,12 @@ Gem::Specification.new do |s|
 
   s.specification_version = 3
 
-  s.add_development_dependency('shoulda', '~> 0')
+  s.add_development_dependency('shoulda')
   s.add_development_dependency('bundler', '~> 1.0')
   s.add_development_dependency('jeweler', '~> 1.6')
-  s.add_development_dependency('rcov', '~> 0')
-  s.add_runtime_dependency('nokogiri', '~> 0')
-  s.add_runtime_dependency('rest-client', '~> 0')
-  s.add_runtime_dependency('builder', '~> 0')
+  s.add_development_dependency('rcov')
+  s.add_runtime_dependency('nokogiri')
+  s.add_runtime_dependency('rest-client')
+  s.add_runtime_dependency('builder')
 end
 
